@@ -1,14 +1,57 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
+import { useState } from 'react'
 import './App.css'
 
 function App() {
+  // Estado para nome do item
+  const [itemName, setItemName] = useState('')
+  // Estado para preço do item
+  const [price, setPrice] = useState('')
+  // Estado para lista de itens: array [name, price]
+  const [items, setItems] = useState([])
+  // Estado para mensagem de erro simples
+  const [error, setError] = useState('')
+  // Função para formatar  valor como moeda BRL
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
+  }
+  // Função chamada ao clicar no botão de adicionar item
+  const handleAddItem = () => {
+    // Emite erro se nome do item estiver vazio
+    setError('')
+    // Salvar o nome na variavel name, removendo espaços em branco no início e no fim
+    const name = itemName.trim()
+    // verifica se o nome está vazio
+    if(!name){
+      setError('Por favor, insira o nome do item.')
+      return // Se houver um erro de validação, o return interrompe a execução da função imediatamente
+    }
+  }
+  // Aceita vírgula ou ponto como separador decimal
+  const normalized = price.replace(',')
+  // Converte o valor para número de ponto flutuante
+  const parsed = parseFloat(normalized)
+  if(isNaN(parsed)){
+    setError('Por favor, insira um valor numérico (ex: 12.50 ).')
+    return
+  }
+  // Criar novo item e atualizar lista
+  const newItem = { name, price: parsed}
+  setItems(prev => [...prev, newItem ])
+  // limpa campos
+  setItemName('')
+  setPrice('')
+  // Permitir enviar com Enter no campo do preço
+  const handleKeyDown = (e) => {
+    if(e.key ==='Enter') handleAddItem()
+  }
 
   return (
     <>
       <header>
         <h1>Lista de compras</h1>
-        <p>Gerencie seus itens de foma simples e organizada!</p>
+        <p>Gerencie seus itens de forma simples e organizada!</p>
       </header>
       <section>
         <div className="boxAddItems">
@@ -18,6 +61,7 @@ function App() {
             <input type="number" name="valor" placeholder='Valor (R$)'/>
             <button>+ Adicionar</button>
           </div>
+          
         </div>
         <div className="itemsList">
           <div className="items">
