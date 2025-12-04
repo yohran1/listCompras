@@ -2,6 +2,8 @@
 // import viteLogo from '/vite.svg'
 import { useState } from 'react'
 import './App.css'
+import ErrorMSG from './components/ErrorMSG'
+import ListaCompras from './components/listaCompras'
 
 function App() {
   // Estado para nome do item
@@ -82,7 +84,7 @@ function App() {
             />
             <button onClick={handleAddItem}>+ Adicionar</button>
           </div>
-          {error && <p className="error">{error}</p>}
+          <ErrorMSG error={error} />
         </div>
         <div className="itemsList">
           <div className="items">
@@ -92,13 +94,7 @@ function App() {
                   <p>Adicione itens acima para começar</p>
                 </>
               ) : (
-                <ul>
-                  {items.map((item, id_item) => (
-                    <li key={id_item}>
-                      {item.name} - {formatCurrency(item.price)}
-                    </li>
-                  ))}
-                </ul>
+                <ListaCompras items={items} formatCurrency={formatCurrency} />
               )}
           </div>
         </div>
