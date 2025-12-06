@@ -1,11 +1,16 @@
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import { useState } from 'react'
+import perigoIcon from './assets/Perigo.png'
+import { useState, useEffect } from 'react'
 import './App.css'
 import ErrorMSG from './components/ErrorMSG'
 import ListaCompras from './components/listaCompras'
 
 function App() {
+  // Para pré-carregamento da imagem de perigo
+  useEffect(() => {
+    const img = new Image()
+    img.src = perigoIcon // importada aqui para carregar no cache do navegador
+  },[]) // array vazio [] garante que isso rode apenas uma vez quando o app carregar
+  
   // Estado para nome do item
   const [itemName, setItemName] = useState('')
   // Estado para preço do item
@@ -15,12 +20,14 @@ function App() {
   // Estado para mensagem de erro simples
   const [error, setError] = useState('')
   // Função para formatar  valor como moeda BRL
+
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('pt-BR', { 
       style: 'currency', 
       currency: 'BRL'
      }).format(value)
   }
+
   // Função chamada ao clicar no botão de adicionar item
   const handleAddItem = () => {
     // Emite erro se nome do item estiver vazio
@@ -29,11 +36,11 @@ function App() {
     const name = itemName.trim()
     // verifica se o nome está vazio
     if(!name){
-      setError('Por favor, insira o nome do item.')
+      setError('Por favor, insira o nome do item!')
       return // Se houver um erro de validação, o return interrompe a execução da função imediatamente
     }
     if(!price.trim()){
-      setError('Por favor, insira o valor do item.')
+      setError('Por favor, insira o valor do item!')
       return
     }
     // Aceita vírgula ou ponto como separador decimal
@@ -44,6 +51,7 @@ function App() {
       setError('Por favor, insira um valor numérico (ex: 12.50 ).')
       return
     }
+
     // Criar novo item e atualizar lista
     const newItem = { name, price: parsed}
     setItems(prev => [...prev, newItem ])
@@ -51,10 +59,20 @@ function App() {
     setItemName('')
     setPrice('')
   }
+
   // Permitir enviar com Enter no campo do preço
   const handleKeyDown = (e) => {
     if(e.key ==='Enter') handleAddItem()
   }
+
+  // Editar item específico 
+  const handleEditItem = (id_item, updatedItemData) => {
+  setItems(prevItems =>
+    prevItems.map((item, index) =>
+      index === id_item ? { ...item, ...updatedItemData } : item
+    )
+  )
+}
 
   return (
     <>
@@ -94,7 +112,11 @@ function App() {
                   <p>Adicione itens acima para começar</p>
                 </>
               ) : (
-                <ListaCompras items={items} formatCurrency={formatCurrency} />
+                <ListaCompras 
+                  items={items} 
+                  formatCurrency={formatCurrency} 
+                  handleEditItem={handleEditItem} 
+                />
               )}
           </div>
         </div>
