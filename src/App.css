@@ -9,6 +9,44 @@
 header{
   text-align: start;
 }
+.boxAddItems{
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px 10px red;
+  border-radius: 35px;
+  overflow: hidden;
+
+}
+.addItems{
+  background-color: aliceblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 0 20px;
+}
+.addItems input{
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: rebeccapurple;
+  padding: 0 10px;
+}
+.addItems input[type="number"]{
+  width: 100px;
+  margin-left: 10px;
+}
+.addItems button{
+  display: flex;
+  align-items: center;
+  width: 190px;
+  padding: 5px;
+  margin-left: 10px;
+  height: 100%;
+  padding: 5px 10px;
+  background-color: rebeccapurple;
+  font-weight: bold;
+  cursor: pointer;
+}
 h1{
   text-align: start;
   font-size: 30px;

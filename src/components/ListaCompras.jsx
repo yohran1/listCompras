@@ -6,6 +6,10 @@ function ListaCompras({items, formatCurrency, handleEditItem}) {
     const [editName, setEditName] = useState('')
     const [editPrice, setEditPrice] = useState('')
 
+    // const lidandoFeito = () => {
+
+    // }
+
     const iniciarEditcao = (id_item, atualName, atualPrice) => {
         setEditandoItemId(id_item)
         setEditName(atualName)

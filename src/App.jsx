@@ -2,7 +2,7 @@ import perigoIcon from './assets/Perigo.png'
 import { useState, useEffect } from 'react'
 import './App.css'
 import ErrorMSG from './components/ErrorMSG'
-import ListaCompras from './components/listaCompras'
+import ListaCompras from './components/ListaCompras'
 
 function App() {
   // Para pré-carregamento da imagem de perigo
