@@ -4,32 +4,37 @@
   min-height: 100vh;
   padding: 2rem;
   text-align: center;
-  background-color: rgba(56, 9, 117, 0.274);
+  background-color: #17171C;
 }
 header{
   text-align: start;
 }
 .boxAddItems{
-  border: 1px solid black;
-  box-shadow: 0px 0px 10px 10px red;
-  border-radius: 35px;
+  border-radius: 1%;
   overflow: hidden;
-
+  background-color: #242429;
+  border-radius: 15px;
 }
 .addItems{
-  background-color: aliceblue;
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   padding: 0 20px;
+  margin-bottom: 25px;
 }
 .addItems input{
   width: 100%;
   height: 30px;
   border-radius: 10px;
-  background-color: rebeccapurple;
+  background-color: #17171C;
   padding: 0 10px;
+}
+.edit-mode{
+  width: 100%;
+  display: flex;
+  background-color: cadetblue;
+  
 }
 .addItems input[type="number"]{
   width: 100px;
@@ -38,12 +43,11 @@ header{
 .addItems button{
   display: flex;
   align-items: center;
-  width: 190px;
-  padding: 5px;
+  width: 210px;
   margin-left: 10px;
-  height: 100%;
-  padding: 5px 10px;
-  background-color: rebeccapurple;
+  height: 35px;
+  padding: 5px 15px;
+  background-color:#0367E9 ;
   font-weight: bold;
   cursor: pointer;
 }
@@ -62,4 +66,32 @@ h1{
   width: 25px;
   margin-left: 10px;
   /* background-color: aquamarine; */
+}
+.itemsList{
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid rgb(100, 100, 100);
+  background-color: #242429;
+  overflow: hidden;
+}
+.items ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  
+}
+.view-mode, .edit-mode{
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
