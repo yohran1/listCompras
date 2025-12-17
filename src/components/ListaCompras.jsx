@@ -41,25 +41,33 @@ function ListaCompras({items, formatCurrency, handleEditItem}) {
                     {editandoItemId === id_item ? (
                         // modo de edição
                         <div className="edit-mode">
-                            <input
-                                type="text"
-                                value={editName}
-                                onChange={(e) => setEditName(e.target.value)}
-                            />
-                            <input
-                                type="number"
-                                value={editPrice}
-                                onChange={(e) => setEditPrice(e.target.value)}
-                                step="0.01"
-                            />
-                            <button onClick={() => saveEditing(id_item)}>Salvar</button>
-                            <button onClick={() => setEditandoItemId(null)}>Cancelar</button>
+                            <div className="editingItem">
+                                <input
+                                    type="text"
+                                    value={editName}
+                                    onChange={(e) => setEditName(e.target.value)}
+                                />
+                                <input
+                                    type="number"
+                                    value={editPrice}
+                                    onChange={(e) => setEditPrice(e.target.value)}
+                                    step="0.01"
+                                />
+                            </div>
+                            <div className="edit-buttons">
+                                <button onClick={() => saveEditing(id_item)}>Salvar</button>
+                                <button onClick={() => setEditandoItemId(null)}>Cancelar</button>
+                            </div>
                         </div>
                     ) : (
                         // modo visualização
                         <div className="view-mode">
-                            {item.name} - {formatCurrency(item.price)}
-                            <button onClick={() => iniciarEditcao(id_item, item.name, item.price)} >Editar</button>
+                            <div className="view-items">
+                                {item.name} - {formatCurrency(item.price)}
+                            </div>
+                            <div className="view-button">
+                                <button onClick={() => iniciarEditcao(id_item, item.name, item.price)} >Editar</button>
+                            </div>
                         </div>
                     )}
                 </li>

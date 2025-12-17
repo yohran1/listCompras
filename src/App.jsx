@@ -82,27 +82,29 @@ function App() {
       </header>
       <section>
         <div className="boxAddItems">
-          <h2>Adicionar item</h2>
-          <div className="addItems">
-            <input
-             type="text" 
-             name="item" 
-             placeholder='Nome do item'
-             value={itemName}
-             onChange={(e) => setItemName(e.target.value)}
-             />
-            <input 
-            type="number" 
-            name="valor" 
-            placeholder='Valor (R$)'
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            onKeyDown={handleKeyDown}
-            step="0.01"
-            />
-            <button onClick={handleAddItem}>+ Adicionar</button>
+          <div>
+            <h2>Adicionar item</h2>
+            <div className="addItems">
+              <input
+              type="text" 
+              name="item" 
+              placeholder='Nome do item'
+              value={itemName}
+              onChange={(e) => setItemName(e.target.value)}
+              />
+              <input 
+              type="number" 
+              name="valor" 
+              placeholder='Valor (R$)'
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              onKeyDown={handleKeyDown}
+              step="0.01"
+              />
+              <button onClick={handleAddItem}>+ Adicionar</button>
+            </div>
+            <ErrorMSG error={error} />
           </div>
-          <ErrorMSG error={error} />
         </div>
         <div className="itemsList">
           <div className="items">

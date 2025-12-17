@@ -5,15 +5,32 @@
   padding: 2rem;
   text-align: center;
   background-color: #17171C;
+  font-size: 10px;
+}
+input, button{
+  font-size: 10px;
 }
 header{
   text-align: start;
 }
+section{
+  width: 50%;
+  margin: auto;
+}
 .boxAddItems{
   border-radius: 1%;
+  padding: 5px;
   overflow: hidden;
   background-color: #242429;
   border-radius: 15px;
+}
+.boxAddItems div{
+  width: 95%;
+  margin: auto;
+  overflow: hidden;
+}
+.boxAddItems h2{
+  text-align: start;
 }
 .addItems{
   display: flex;
@@ -27,22 +44,54 @@ header{
   width: 100%;
   height: 30px;
   border-radius: 10px;
+  border: none;
   background-color: #17171C;
   padding: 0 10px;
 }
-.edit-mode{
+.view-items{
+  overflow: hidden;
+  
+}
+.view-button{
+  overflow: hidden;
+}
+/* Para Chrome, Safari, Edge e Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Para corrigir o espaçamento deixado após a remoção */
+}
+/* Para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.addItems input[type="number"]{
   width: 100%;
+}
+.addItems input:focus{
+  outline: none; /*remover a borda padrão do navegador */
+  border: 1px solid #0367E9;
+}
+.edit-mode{
+  overflow: hidden;
   display: flex;
+  justify-content: space-between;
   background-color: cadetblue;
   
 }
-.addItems input[type="number"]{
-  width: 100px;
-  margin-left: 10px;
+.edit-mode input{
+  width: 90%;
+  height: 30px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  border: none;
+  background-color: #17171C;
+  padding: 0 10px;
 }
 .addItems button{
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 210px;
   margin-left: 10px;
   height: 35px;
@@ -50,6 +99,21 @@ header{
   background-color:#0367E9 ;
   font-weight: bold;
   cursor: pointer;
+}
+.editingItem{
+  width: 85%;
+  overflow: hidden;
+  /* background-color: red; */
+}
+.edit-buttons{
+  display: flex;
+  flex-direction: column;
+  
+  overflow: hidden;
+  /* background-color: blueviolet; */
+}
+.edit-buttons button{
+  margin-bottom: 5px;
 }
 h1{
   text-align: start;
@@ -94,4 +158,24 @@ h1{
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+}
+@media (max-width: 700px){
+  section{
+    width: 100%;
+  }
+  .addItems{
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+
+  }
+  .addItems input, input[type='number']{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 0;
+  }
+  button{
+    text-align: center;
+  }
+  
 }
