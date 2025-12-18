@@ -47,6 +47,7 @@ section{
   border: none;
   background-color: #17171C;
   padding: 0 10px;
+  margin-right: 5px;
 }
 .view-items{
   overflow: hidden;
@@ -75,9 +76,7 @@ input[type=number] {
 .edit-mode{
   overflow: hidden;
   display: flex;
-  justify-content: space-between;
-  background-color: cadetblue;
-  
+  justify-content: space-between;  
 }
 .edit-mode input{
   width: 90%;
@@ -94,8 +93,8 @@ input[type=number] {
   justify-content: center;
   width: 210px;
   margin-left: 10px;
-  height: 35px;
   padding: 5px 15px;
+  padding: 5px;
   background-color:#0367E9 ;
   font-weight: bold;
   cursor: pointer;
@@ -127,7 +126,7 @@ h1{
   text-align: center;
 }
 .error img{
-  width: 25px;
+  width: 20px;
   margin-left: 10px;
   /* background-color: aquamarine; */
 }
@@ -158,6 +157,17 @@ h1{
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+}
+.item-name{
+  margin: 0;
+  padding: 0;
+}
+.item-price{
+  margin: 0;
+  padding: 0;
+}
+.item-price p{
+  text-decoration: gray;
 }
 @media (max-width: 700px){
   section{

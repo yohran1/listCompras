@@ -63,7 +63,8 @@ function ListaCompras({items, formatCurrency, handleEditItem}) {
                         // modo visualização
                         <div className="view-mode">
                             <div className="view-items">
-                                {item.name} - {formatCurrency(item.price)}
+                                <div className="item-name">{item.name}</div>
+                                <div className="item-price"><p>{formatCurrency(item.price)}</p></div>
                             </div>
                             <div className="view-button">
                                 <button onClick={() => iniciarEditcao(id_item, item.name, item.price)} >Editar</button>
