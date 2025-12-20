@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ListaCompras({items, formatCurrency, handleEditItem}) {
+function ListaCompras({items, formatCurrency, handleEditItem, handleDeleteItem}) {
     // Estado local para controlar qual item está sendo editado
     const [editandoItemId, setEditandoItemId] = useState(null)
     const [editName, setEditName] = useState('')
@@ -68,6 +68,7 @@ function ListaCompras({items, formatCurrency, handleEditItem}) {
                             </div>
                             <div className="view-button">
                                 <button onClick={() => iniciarEditcao(id_item, item.name, item.price)} >Editar</button>
+                                <button onClick={() => handleDeleteItem(id_item)}>Apagar</button>
                             </div>
                         </div>
                     )}

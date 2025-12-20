@@ -67,12 +67,19 @@ function App() {
 
   // Editar item específico 
   const handleEditItem = (id_item, updatedItemData) => {
-  setItems(prevItems =>
-    prevItems.map((item, index) =>
-      index === id_item ? { ...item, ...updatedItemData } : item
+    setItems(prevItems =>
+      prevItems.map((item, index) =>
+        index === id_item ? { ...item, ...updatedItemData } : item
+      )
     )
-  )
-}
+  }
+  // Deletar item específico
+  const handleDeleteItem = (id_item) => {
+    setItems(prevItems => prevItems.filter(
+      (item, index) => index !== id_item
+      
+    ))
+  }
 
   return (
     <>
@@ -118,6 +125,7 @@ function App() {
                   items={items} 
                   formatCurrency={formatCurrency} 
                   handleEditItem={handleEditItem} 
+                  handleDeleteItem={handleDeleteItem}
                 />
               )}
           </div>
